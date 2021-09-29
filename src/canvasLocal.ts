@@ -9,17 +9,22 @@ export class CanvasLocal {
   protected pixelSize: number;
   protected centerX: number;
   protected centerY: number;
+  protected  A: number;
+  protected  B: number;
+  protected  C: number;
+  protected  D: number;
   
       
   public constructor(g: CanvasRenderingContext2D, canvas: HTMLCanvasElement){
     this.graphics = g;
     this.rWidth = 6;
     this.rHeight= 4;
-    this.maxX = canvas.width - 1
+    this.maxX = canvas.width - 1;
     this.maxY = canvas.height - 1;
     this.pixelSize = Math.max(this.rWidth / this.maxX, this.rHeight / this.maxY);
     this.centerX = this.maxX/2;
     this.centerY = this.maxY/2;
+    
   }
 
   /*iX(x: number):number{return Math.round(this.centerX + x/this.pixelSize);}
@@ -31,19 +36,60 @@ export class CanvasLocal {
     this.graphics.lineTo(x2, y2);
     this.graphics.closePath();
     this.graphics.stroke();
+    //this.graphics.pixelSize(5);
   }
 
   /*fx(x:number):number {
     return Math.sin(x*2.5);
   }*/
 
-
+  
   paint() {
+    let A=100;
+    let B=400;
+    let C=500;
+    let D=400;
+    for(let i = 1; i < 8; ){
+      this.drawLine(A,B,C,D);
+      A=A+26;
+      B=B-13;
+      C=C-26;
+      D=D-13;
+      
+      i++
+    }
+    A = 101;
+    B = 401;
+    C = 308;
+    D = 60;
+    for (let a = 1; a < 8;) {
+        this.drawLine(A, B, C, D);
+        A=A+26;
+        B=B-13;
+        D=D+26;
+        a++;
+    }
+    A = 308;
+    B = 58;
+    C = 502;
+    D = 402;
+    for (let a = 1; a < 8;) {
+      this.drawLine(A, B, C, D);
+        //A=A+25;
+        B=B+26;       
+        C=C-26;
+        D=D-13;
+        a++;
+    }
     
+    /*
+     
+      
+    */
 
-    this.drawLine(100.5,100, 500,100.5);
-    this.drawLine(500, 100, 300, 400);
-    this.drawLine(300, 400, 100,100);
+    /*this.drawLine(100.5,100, 500,100.5);
+    this.drawLine(500, 100, 500, 400);
+    this.drawLine(100, 400, 100,100);*/
    /* this.drawLine(this.iX(-3), this.iY(0), this.iX(3), this.iY(0));
     this.drawLine(this.iX(0), this.iY(2), this.iX(0), this.iY(-2));
 

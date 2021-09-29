@@ -9,3 +9,4 @@ graphics = canvas.getContext('2d');
 const miCanvas:CanvasLocal = new CanvasLocal(graphics, canvas);
 
 miCanvas.paint();
+//miCanvas.pixelSize();
